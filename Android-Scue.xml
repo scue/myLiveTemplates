@@ -1,0 +1,43 @@
+<templateSet group="Android-Scue">
+  <template name="dialog" value="new AlertDialog.Builder($className$.this)&#10;// 设定布局&#10;        .setView(dialogView)&#10;        // 设定‘标题’&#10;        .setTitle(&quot;Title&quot;)&#10;        // 设定‘内容’&#10;        .setMessage(&quot;Message&quot;)&#10;        // 设定‘确定’&#10;        .setPositiveButton(&quot;OK&quot;, new DialogInterface.OnClickListener() {&#10;&#10;            @Override&#10;            public void onClick(DialogInterface dialog, int which) {&#10;                //do something&#10;            }&#10;        })&#10;        // 设定‘取消’&#10;        .setNegativeButton(&quot;Cancel&quot;, new DialogInterface.OnClickListener() {&#10;&#10;            @Override&#10;            public void onClick(DialogInterface dialog, int which) {&#10;                //do something&#10;            }&#10;        })&#10;        // 最后显示&#10;        .show();&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="className" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_EXPRESSION" value="true" />
+    </context>
+  </template>
+  <template name="sharedPref" value="SharedPreferences $name$ = $className$.this.getSharedPreferences(&quot;$name$&quot;, MODE_PRIVATE);&#10;// Put&#10;Editor $name$Editor = $name$.edit();&#10;$name$Editor.putString(&quot;front_host&quot;, &quot;200.200.75.195&quot;);&#10;$name$Editor.commit();&#10;// Get&#10;String front_host = $name$.getString(&quot;front_host&quot;, null);" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
+    <variable name="className" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_EXPRESSION" value="true" />
+    </context>
+  </template>
+  <template name="inflateView" value="LayoutInflater $name$ = (LayoutInflater) $className$.this&#10;&#9;&#9;&#9;&#9;.getSystemService(LAYOUT_INFLATER_SERVICE);&#10;View $viewName$ = $name$.inflate(R.layout.$viewLayout$, null);" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
+    <variable name="className" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <variable name="viewName" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
+    <variable name="viewLayout" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_EXPRESSION" value="true" />
+    </context>
+  </template>
+  <template name="drawableToBitmap" value="Bitmap $name$ = BitmapFactory.decodeResource($className$.this.getResources(),R.drawable.$byId$);" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
+    <variable name="className" expression="className()" defaultValue="" alwaysStopAt="true" />
+    <variable name="byId" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_EXPRESSION" value="true" />
+    </context>
+  </template>
+  <template name="broadcastReciver" value="// Define BroadcastReceiver&#10;BroadcastReceiver $name$ = new BroadcastReceiver() {&#10;    public void onReceive(Context context, Intent intent){&#10;        String action = intent.getAction();&#10;        if(&quot;com.my.action&quot;.equals(action)){&#10;            // do something here&#10;        }&#10;    }&#10;};&#10;// Register BroadcastReceiver&#10;registerReceiver($name$, new IntentFilter(&quot;com.my.action&quot;));" toReformat="false" toShortenFQNames="true">
+    <variable name="name" expression="completeSmart()" defaultValue="" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_EXPRESSION" value="true" />
+    </context>
+  </template>
+</templateSet>
