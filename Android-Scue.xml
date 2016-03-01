@@ -40,4 +40,30 @@
       <option name="JAVA_EXPRESSION" value="true" />
     </context>
   </template>
+  <template name="getBitmapFromUrl" value="private Bitmap getBitmapFromUrl(String urlString) {&#10;    InputStream inputStream = null;&#10;    Bitmap bitmap;&#10;    try {&#10;        URL url = new URL(urlString);&#10;        HttpURLConnection connection = (HttpURLConnection) url.openConnection();&#10;        inputStream = connection.getInputStream();&#10;        bitmap = BitmapFactory.decodeStream(inputStream);&#10;        connection.disconnect();&#10;        return bitmap;&#10;    } catch (IOException e) {&#10;        e.printStackTrace();&#10;    } finally {&#10;        try {&#10;            inputStream.close();&#10;        } catch (IOException e) {&#10;            e.printStackTrace();&#10;        }&#10;    }&#10;    return null;&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="isOnline" value="public static boolean isOnline(Context context){&#10;    ConnectivityManager connectivityManager = (ConnectivityManager) context.getSystemService(CONNECTIVITY_SERVICE);&#10;    NetworkInfo networkInfo = connectivityManager.getActiveNetworkInfo();&#10;    if (networkInfo != null &amp;&amp; networkInfo.isConnectedOrConnecting())&#10;        return true;&#10;    return false;&#10;}" toReformat="false" toShortenFQNames="true">
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="countdownTimer" value="public class $MyTimer$ extends CountDownTimer {&#10;&#10;    public $MyTimer$(long millisInFuture, long countDownInterval) {&#10;        super(millisInFuture, countDownInterval);&#10;    }&#10;&#10;    public void onFinish() {&#10;        Log.i(TAG, &quot;onFinish: &quot;);&#10;    }&#10;&#10;    public void onTick(long millisUntilFinished) {&#10;        Log.i(TAG, &quot;onTick: millisUntilFinished = &quot; + millisUntilFinished);&#10;    }&#10;}" toReformat="false" toShortenFQNames="true">
+    <variable name="MyTimer" expression="completeSmart()" defaultValue="&quot;MyTimer&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+  <template name="autocompleteTextView" value="AutoCompleteTextView $autoCompleteTextView$ = (AutoCompleteTextView) findViewById(R.id.$autocmpTextView$);&#10;String[] $strings$ = new String[] {&quot;complete1&quot;, &quot;compute&quot;, &quot;category&quot;, &quot;date&quot;, &quot;dag&quot;, &quot;doge&quot;, &quot;pree&quot;, &quot;people&quot;};&#10;ArrayAdapter&lt;String&gt; $arrayAdapter$ = new ArrayAdapter&lt;String&gt;(this, android.R.layout&#10;        .simple_dropdown_item_1line, $strings$);&#10;$autoCompleteTextView$.setAdapter($arrayAdapter$);&#10;$autoCompleteTextView$.setThreshold(1);" toReformat="false" toShortenFQNames="true">
+    <variable name="autoCompleteTextView" expression="completeSmart()" defaultValue="&quot;autoCompleteTextView&quot;" alwaysStopAt="true" />
+    <variable name="autocmpTextView" expression="completeSmart()" defaultValue="&quot;autocmpTextView&quot;" alwaysStopAt="true" />
+    <variable name="strings" expression="completeSmart()" defaultValue="&quot;strings&quot;" alwaysStopAt="true" />
+    <variable name="arrayAdapter" expression="completeSmart()" defaultValue="&quot;arrayAdapter&quot;" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="true" />
+      <option name="JAVA_DECLARATION" value="false" />
+    </context>
+  </template>
 </templateSet>

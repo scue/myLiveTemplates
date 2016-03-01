@@ -1,0 +1,10 @@
+<templateSet group="Java-Scue">
+  <template name="singleton" value="public class $SingletonClass${&#10;    private volatile static $SingletonClass$ instance=null;&#10;    private $SingletonClass$(){}&#10;    public static $SingletonClass$ getInstance(){&#10;        if(instance==null){&#10;            synchronized($SingletonClass$.class){&#10;                if(instance==null){&#10;                    instance=new $SingletonClass$();&#10;                }&#10;            }&#10;        }&#10;        return instance;&#10;    }&#10;}&#10;" toReformat="false" toShortenFQNames="true">
+    <variable name="SingletonClass" expression="" defaultValue="SingletonClass" alwaysStopAt="true" />
+    <context>
+      <option name="JAVA_STATEMENT" value="false" />
+      <option name="JAVA_EXPRESSION" value="false" />
+      <option name="JAVA_DECLARATION" value="true" />
+    </context>
+  </template>
+</templateSet>
